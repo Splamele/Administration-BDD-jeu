@@ -27,7 +27,7 @@ def liste_personnage():
     persos = list(caracters.find())           
     print("Tous les personnages utilisables ")
     for i, p in enumerate(persos):
-        print(f"{i + 1}. {p['name']} - ATK: {p['atk']} | DEF: {p['defense']} | HP: {p['hp']}")
+        print(f"{i + 1}. {p['name']} - ATK: {p['ATK']} | DEF: {p['DEF']} | PV: {p['PV']}")
     return persos
 
 def choix_equipe():
@@ -36,7 +36,7 @@ def choix_equipe():
     equipe = []
     while len(equipe) < 3:
         try : 
-            choix = int(input("Entrer le numéro du personnage :"))
+            choix = int(input("Entrer le numéro du personnage : "))
             if choix < 1 or choix > len(persos):
                 print("Numérot invalide")
                 continue

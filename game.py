@@ -1,4 +1,5 @@
 import random
+import time
 from models import Character, Monster
 from pymongo import MongoClient
 
@@ -17,20 +18,17 @@ def save_score(name_user, waves):
         "waves": waves
     })
 
-
-# Fonction d'un combat contre un monstre
 def fight(team, monster):
     print("\n=== COMBAT ===")
     print(f"Vous affrontez : {monster.name} (ATK {monster.atk} | DEF {monster.defense} | PV {monster.hp})")
 
-    # Boucle du combat
     while True:
-        # ----- PHASE : Les héros attaquent -----
         for hero in team:
             if hero.hp <= 0:
                 continue
 
             damage = max(0, hero.atk - monster.defense)
+            time.sleep(0.5)
             monster.hp -= damage
             print(f"{hero.name} inflige {damage} dégâts → {monster.name} ({monster.hp} PV)")
 
@@ -38,7 +36,6 @@ def fight(team, monster):
                 print("Le monstre est Ko !")
                 return True
 
-        # ----- PHASE : Le monstre attaque -----
         alive_heroes = [h for h in team if h.hp > 0]
 
         if not alive_heroes:
@@ -47,11 +44,11 @@ def fight(team, monster):
 
         target = random.choice(alive_heroes)
         monster_damage = max(0, monster.atk - target.defense)
+        time.sleep(0.5)
         target.hp -= monster_damage
 
         print(f"{monster.name} attaque {target.name} et inflige {monster_damage} dégâts → {target.hp} PV")
 
-        # Check si le héros meurt
         if all(h.hp <= 0 for h in team):
             print("Tous les personnages de l'équipe sont ko...")
             return False
@@ -59,10 +56,7 @@ def fight(team, monster):
 
 def start_game(player_name, team):
     waves = 0
-
     print("\n=== Début de la partie ===")
-    print(f"Bonne chance {player_name} !")
-
     while True:
         monster = monstre_hasard()
         print( "=======================")
@@ -77,10 +71,8 @@ def start_game(player_name, team):
         waves += 1
         print(f"Vagues complétées : {waves}")
 
-    print("\n=== Fin de la partie ===")
+    print("Fin de la partie")
     print(f"Score final : {waves} vagues")
-
-    # Sauvegarde score
     save_score(player_name, waves)
 
     return waves
