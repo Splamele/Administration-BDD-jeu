@@ -20,22 +20,8 @@ def get_choice():
     if choix in ['1','2','3']:
         return choix
     else:
-         print("Mauvaise valeur, c'est 1, 2 ou 3. \n")
-
-def show_main_menu():
-    while True :
-        print_menu()
-        choix = get_choice()
-        if choix == "1" :
-            name_user = input("Nom de l'utilisateur : ")
-            start_game(name_user, choix_equipe())
-        elif choix == "2":
-            show_scores()
-        elif choix == "3":
-            print("Fermeture du jeu...")
-            sys.exit(0)
-        else : 
-            break
+        print("Mauvaise valeur, c'est 1, 2 ou 3. \n")
+        return None
 
 def liste_personnage():
     persos = list(caracters.find())           
@@ -65,13 +51,28 @@ def choix_equipe():
         except ValueError:
             print("Veuillez entrer un nombre valide.")
                         
-    team_objs = [Character.from_dict(p) for p in equipe]
-    return team_objs
+    return [Character.from_dict(p) for p in equipe]
 
 def show_scores():
     best_scores = scores.find().sort("waves", -1).limit(3)
     for i, s in enumerate(best_scores, start=1):
         print(f"{i}. {s['player']} - {s['waves']} vagues")
+        found = True
+    if not found:
+        print("Aucun score enregistré.")
+
+def show_main_menu():
+    while True :
+        print_menu()
+        choix = get_choice()
+        if choix == "1" :
+            name_user = input("Nom de l'utilisateur : ")
+            start_game(name_user, choix_equipe())
+        elif choix == "2":
+            show_scores()
+        elif choix == "3":
+            print("Fermeture du jeu...")
+            sys.exit(0)
 
 if __name__ == "__main__":
     show_main_menu()
