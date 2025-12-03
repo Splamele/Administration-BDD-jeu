@@ -1,6 +1,6 @@
 import random
 import time
-from models import Character, Monster
+from models import Monster
 from pymongo import MongoClient
 
 client = MongoClient("mongodb://localhost:27017")
@@ -60,7 +60,7 @@ def start_game(player_name, team):
     while True:
         monster = monstre_hasard()
         print( "=======================")
-        print(f"\n--- Vague {waves + 1} ---")
+        print(f"       Vague {waves + 1} ")
         print( "=======================")
 
         victory = fight(team, monster)

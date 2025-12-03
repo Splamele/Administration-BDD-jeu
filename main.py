@@ -12,23 +12,24 @@ monstres = db["monsters"]
 scores = db["scores"]
 
 def print_menu():
+    print("\n---Menu Principal--- \n")
     print("1: Lancer le jeu")
     print("2: Afficher le classement")
-    print("3: quitter")
+    print("3: Quitter")
 
 def liste_personnage():
     persos = list(caracters.find())           
-    print("Tous les personnages utilisables ")
+    print("Tous les personnages utilisables :\n")
     for i, p in enumerate(persos):
         print(f"{i + 1}. {p['name']} - ATK: {p['ATK']} | DEF: {p['DEF']} | PV: {p['PV']}")
     return persos
 
 def choix_equipe():
-    print("Fait le choix de ton équipe (3 personnages)")
+    print("\nFait le choix de ton équipe (3 personnages)")
     persos = liste_personnage()
     equipe = []
     for i in range(3):
-        choix = get_choice("Entrer le numéro du personnage : ",valid_choices=list(range(1, len(persos) + 1)))
+        choix = get_choice("Entrer le numéro du personnage : ",list(range(1, len(persos) + 1)))
         perso = persos.pop(choix - 1)
         equipe.append(perso)
         print(f"{perso['name']} a été ajouter à votre équipe !")
@@ -37,6 +38,7 @@ def choix_equipe():
 
 def show_scores():
     best_scores = scores.find().sort("waves", -1).limit(3)
+    print("\nLe classement des 3 meilleurs runs :\n")
     for i, s in enumerate(best_scores, start=1):
         print(f"{i}. {s['player']} - {s['waves']} vagues")
         found = True
@@ -46,7 +48,7 @@ def show_scores():
 def show_main_menu():
     while True :
         print_menu()
-        choix = get_choice("Votre choix : ", [1,2,3])
+        choix = get_choice("\nVotre choix : ", [1,2,3])
         if choix == 1 :
             name_user = input("Nom de l'utilisateur : ")
             start_game(name_user, choix_equipe())
