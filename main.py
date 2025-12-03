@@ -3,6 +3,7 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 from game import start_game
 from models import Character
+from utils import get_choice
 
 client = MongoClient("mongodb://localhost:27017")
 db = client["jeu_video"]  # Sélection ou création de la base test_db
@@ -15,14 +16,6 @@ def print_menu():
     print("2: Afficher le classement")
     print("3: quitter")
 
-def get_choice():
-    choix = input("Votre choix : ")
-    if choix in ['1','2','3']:
-        return choix
-    else:
-        print("Mauvaise valeur, c'est 1, 2 ou 3. \n")
-        return None
-
 def liste_personnage():
     persos = list(caracters.find())           
     print("Tous les personnages utilisables ")
@@ -34,23 +27,12 @@ def choix_equipe():
     print("Fait le choix de ton équipe (3 personnages)")
     persos = liste_personnage()
     equipe = []
-    while len(equipe) < 3:
-        try : 
-            choix = int(input("Entrer le numéro du personnage : "))
-            if choix < 1 or choix > len(persos):
-                print("Numérot invalide")
-                continue
-            perso = persos[choix - 1]
-            if perso in equipe:
-                print("Ce personnage est déjà dans votre équipe.")
-                continue
+    for i in range(3):
+        choix = get_choice("Entrer le numéro du personnage : ",valid_choices=list(range(1, len(persos) + 1)))
+        perso = persos.pop(choix - 1)
+        equipe.append(perso)
+        print(f"{perso['name']} a été ajouter à votre équipe !")
 
-            equipe.append(perso)
-            print(f"{perso['name']} a été ajouter à votre équipe !")
-
-        except ValueError:
-            print("Veuillez entrer un nombre valide.")
-                        
     return [Character.from_dict(p) for p in equipe]
 
 def show_scores():
@@ -64,7 +46,7 @@ def show_scores():
 def show_main_menu():
     while True :
         print_menu()
-        choix = get_choice()
+        choix = get_choice("Votre choix : ", valid_choices=[1,2,3])
         if choix == "1" :
             name_user = input("Nom de l'utilisateur : ")
             start_game(name_user, choix_equipe())
