@@ -19,7 +19,7 @@ def show_main_menu():
 
         if choix == "1" :
             name_user = input("Nom de l'utilisateur : ")
-            print("Fait le choix de ton équipe (3 joueurs)")
+            print("Fait le choix de ton équipe (3 personnages)")
         
         elif choix == "2":
             print("classement : ")

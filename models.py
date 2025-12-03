@@ -7,7 +7,7 @@ class Character:
 
     @staticmethod
     def from_dict(d):
-        return Character(d["name"], d["atk"], d["defense"], d["hp"])
+        return Character(d["name"], d["ATK"], d["DEF"], d["PV"])
 
 
 class Monster:
@@ -19,4 +19,4 @@ class Monster:
 
     @staticmethod
     def from_dict(d):
-        return Monster(d["name"], d["atk"], d["defense"], d["hp"])
+        return Monster(d["name"], d["ATK"], d["DEF"], d["PV"])
