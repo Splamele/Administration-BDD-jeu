@@ -28,7 +28,7 @@ def fight(team, monster):
                 continue
 
             damage = max(0, hero.atk - monster.defense)
-            time.sleep(0.5)
+            time.sleep(1)
             monster.hp -= damage
             print(f"{hero.name} inflige {damage} dégâts → {monster.name} ({monster.hp} PV)")
 
@@ -44,7 +44,7 @@ def fight(team, monster):
 
         target = random.choice(alive_heroes)
         monster_damage = max(0, monster.atk - target.defense)
-        time.sleep(0.5)
+        time.sleep(1)
         target.hp -= monster_damage
 
         print(f"{monster.name} attaque {target.name} et inflige {monster_damage} dégâts → {target.hp} PV")

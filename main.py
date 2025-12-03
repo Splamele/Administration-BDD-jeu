@@ -46,13 +46,13 @@ def show_scores():
 def show_main_menu():
     while True :
         print_menu()
-        choix = get_choice("Votre choix : ", valid_choices=[1,2,3])
-        if choix == "1" :
+        choix = get_choice("Votre choix : ", [1,2,3])
+        if choix == 1 :
             name_user = input("Nom de l'utilisateur : ")
             start_game(name_user, choix_equipe())
-        elif choix == "2":
+        elif choix == 2:
             show_scores()
-        elif choix == "3":
+        elif choix == 3:
             print("Fermeture du jeu...")
             sys.exit(0)
 
