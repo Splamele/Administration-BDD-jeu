@@ -11,9 +11,9 @@ def monstre_hasard ():
 
 #print(monstre_hasard())
 
-def save_score(player_name, waves):
+def save_score(name_user, waves):
     db.scores.insert_one({
-        "player": player_name,
+        "player": name_user,
         "waves": waves
     })
 
