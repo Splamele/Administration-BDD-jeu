@@ -7,8 +7,6 @@ from utils import get_choice, monstre_hasard, save_score
 client = MongoClient("mongodb://localhost:27017")
 db = client["jeu_video"]  # Sélection ou création de la base test_db
 
-#def get_perso
-
 def afficher_persos_disponibles(persos):
     print("\nPersonnages disponibles :")
     for i, p in enumerate(persos):
