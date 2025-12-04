@@ -15,6 +15,8 @@ pip install pymongo
 - Lancer le jeu :
     python main.py
 
+### Structure du project 
+
 1. **Initialisation de la base de données**
     - Script `db_init.py` pour insérer les personnages et monstres dans MongoDB.
 2. **Lancement du jeu**
