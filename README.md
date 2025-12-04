@@ -2,8 +2,8 @@
 
 Prérequis :
 
-Python 3.8+
-MongoDB (démarré sur localhost:27017)
+- Python 3.8+
+- MongoDB (démarré sur localhost:27017)
 
 Installation :
 
@@ -29,7 +29,7 @@ pip install pymongo
     - Script `utils.py` contenant les fonctions pour l'affichage et la gestion des données.
 
 
-histoire des personnage :
+Histoire des personnage :
 
 - Lycaon : viens de zzz, c'est un loup humanoide mais trop stylé, il est chef de la sociétié d'entretient Victoria Housekeeping 
 - Ellen : viens de zzz, c'ets une fille Requin, elle travaille pour la sociétié d'entretient Victoria Housekeeping 
