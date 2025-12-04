@@ -9,12 +9,13 @@ db = client["jeu_video"]  # Sélection ou création de la base test_db
 
 #def get_perso
 
-def liste_personnage(perso=None):
-    if perso is None :
-        persos = list(db.caracters.find())           
-    print("\nTous les personnages utilisables :\n")
+def afficher_persos_disponibles(persos):
+    print("\nPersonnages disponibles :")
     for i, p in enumerate(persos):
-        print(f"{i + 1}. {p['name']} - ATK: {p['ATK']} | DEF: {p['DEF']} | PV: {p['PV']}")
+        print(f"{i + 1}. {p['name']} - ATK {p['ATK']} | DEF {p['DEF']} | PV {p['PV']}")
+
+def liste_personnage():
+    persos = list(db.caracters.find())           
     return persos
 
 def choix_equipe():
@@ -22,11 +23,11 @@ def choix_equipe():
     persos = liste_personnage()
     equipe = []
     for i in range(3):
-        print("\nPersonnages encore disponibles :")
+        afficher_persos_disponibles(persos)
         choix = get_choice("Entrer le numéro du personnage : ",list(range(1, len(persos) + 1)))
-        perso = persos.pop(choix - 1)
-        equipe.append(perso)
-        print(f"{perso['name']} a été ajouter à votre équipe !")
+        perso_choisi = persos.pop(choix - 1)
+        equipe.append(perso_choisi)
+        print(f"{perso_choisi['name']} a été ajouter à votre équipe !")
 
     return [Character.from_dict(p) for p in equipe]
 
@@ -52,7 +53,7 @@ def attaque(attacker, attacked):
 
 def print_start_fight(monster):
     print("\n=== COMBAT ===")
-    print(f"Vous affrontez : {monster.name} (ATK {monster.atk} | DEF {monster.defense} | PV {monster.hp})")
+    print(f"Vous affrontez : {monster.name} (ATK {monster.atk} | DEF {monster.defense} | PV {monster.hp})\n")
 
 def fight(team, monster):
     print_start_fight(monster)
