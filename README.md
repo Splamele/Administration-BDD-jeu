@@ -9,21 +9,21 @@ Installation :
 
 pip install pymongo
 
-1. Initialiser la base de données :
+- Initialiser la base de données :
     python db_init.py
     
-2. Lancer le jeu :
+- Lancer le jeu :
     python main.py
 
-**Initialisation de la base de données**
+1. **Initialisation de la base de données**
     - Script `db_init.py` pour insérer les personnages et monstres dans MongoDB.
-**Lancement du jeu**
+2. **Lancement du jeu**
     - Script `main.py` proposant le menu principal et gérant les interactions.
-**Gestion des combats**
+3. **Gestion des combats**
     - Script `game.py` gérant la logique du combat.
-**Modélisation des données**
+4. **Modélisation des données**
     - Script `models.py` contenant les classes pour les personnages et les monstres. les stats atq, hp, shield (pour la partie orienter objet) 
-**Fonctions utilitaires**
+5. **Fonctions utilitaires**
     - Script `utils.py` contenant les fonctions pour l'affichage et la gestion des données.
 
 
