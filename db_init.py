@@ -6,7 +6,9 @@ personnages = db["caracters"]
 monstres = db["monsters"]
 
 PERSONNAGES_LISTE = [
-    {"name": "Lycaon", "ATK" : 17, "DEF" : 20, "PV": 120},
+    {"name": "Lycaon", "ATK" : 17, "DEF" : 20, "PV": 140},
+
+    {"name" : "Ellen", "ATK": 29, "DEF": 15, "PV": 110},
 
     {"name" : "Miyabi", "ATK": 35, "DEF": 7, "PV": 80},
 
@@ -14,17 +16,15 @@ PERSONNAGES_LISTE = [
 
     {"name" : "Durin", "ATK": 18, "DEF": 6, "PV": 60},
 
-    {"name" : "Kafka", "ATK": 14, "DEF": 12, "PV": 110},
+    {"name": "Fishl", "ATK": 20, "DEF": 18, "PV": 90},
 
-    {"name" : "Sorcier", "ATK": 25, "DEF": 3, "PV": 70},
+    {"name" : "Kafka", "ATK": 27, "DEF": 16, "PV": 120},
 
-    {"name": "Chevalier", "ATK": 17, "DEF": 15, "PV": 120},
+    {"name" : "La Grande Herta", "ATK": 31, "DEF": 14, "PV": 110},
 
-    {"name" : "Moine", "ATK": 19, "DEF": 9, "PV": 95},
+    {"name" : "Saber", "ATK": 34, "DEF": 16, "PV": 120},
 
-    {"name" : "Berserker", "ATK": 23, "DEF": 6, "PV": 105},
-
-    {"name" : "Chasseur", "ATK": 16, "DEF": 11, "PV": 100}
+    {"name" : "Miku", "ATK": 20, "DEF": 13, "PV": 100}
     ]
 
 MONSTRES_LISTE = [
