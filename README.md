@@ -17,3 +17,13 @@
     
 2. Lancer le jeu :
     python main.py
+
+
+histoire des personnage :
+
+Lycaon : viens de zzz, c'est un loup humanoide mais trop stylé, il est chez de la sociétié d'entretient Victoria Housekeeping 
+Miyabi : viens de zzz, sword master et la plus jeune chasseuse des néantres 
+Scaramouche : viens de genshin impact, c'est une marionette, juste le goat 
+Durin : viens de genshin impact, c'est un petit dragon tout choupi et il est ami avec Scaramouche 
+Kafka : viens de honkai star rail, c'est une voleuse de stellaron, elle a une prime sur sa tete de 10,899,000,000 credits
+La Grande Herta : viens de honkai star rail, la génie de notre univers 

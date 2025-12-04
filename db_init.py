@@ -5,16 +5,16 @@ db = client["jeu_video"]
 personnages = db["caracters"]
 monstres = db["monsters"]
 
-personnages_liste = [
-    {"name": "Guerrier", "ATK" : 15, "DEF" : 10, "PV": 100},
+PERSONNAGES_LISTE = [
+    {"name": "Lycaon", "ATK" : 17, "DEF" : 20, "PV": 120},
 
-    {"name" : "Mage", "ATK": 20, "DEF": 5, "PV": 80},
+    {"name" : "Miyabi", "ATK": 35, "DEF": 7, "PV": 80},
 
-    {"name" : "Archer", "ATK": 18, "DEF": 7, "PV": 90},
+    {"name" : "Scaramouche", "ATK": 23, "DEF": 8, "PV": 100},
 
-    {"name" : "Voleur", "ATK": 22, "DEF": 8, "PV": 85},
+    {"name" : "Durin", "ATK": 18, "DEF": 6, "PV": 60},
 
-    {"name" : "Paladin", "ATK": 14, "DEF": 12, "PV": 110},
+    {"name" : "Kafka", "ATK": 14, "DEF": 12, "PV": 110},
 
     {"name" : "Sorcier", "ATK": 25, "DEF": 3, "PV": 70},
 
@@ -27,7 +27,7 @@ personnages_liste = [
     {"name" : "Chasseur", "ATK": 16, "DEF": 11, "PV": 100}
     ]
 
-monstres_liste = [
+MONSTRES_LISTE = [
     {"name": "Gobelin", "ATK": 10, "DEF": 5, "PV": 50},
 
     {"name": "Orc", "ATK": 20, "DEF": 8, "PV": 120},
@@ -54,5 +54,5 @@ def ajouter_plusieurs (liste, db_choix):
     print("Les données ont été correctement ajouter", result.inserted_ids)
 
 
-ajouter_plusieurs(personnages_liste, personnages)
-ajouter_plusieurs(monstres_liste, monstres)
+ajouter_plusieurs(PERSONNAGES_LISTE, personnages)
+ajouter_plusieurs(MONSTRES_LISTE, monstres)
